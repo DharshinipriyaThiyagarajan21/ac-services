@@ -5,7 +5,8 @@ myApp.controller('serviceController', ['$scope','Service','$window', function ($
 		console.log($scope.service.requested_date);
 		service = new Service($scope.service);
 		service.save().then(function(response){
-			console.log("response",response);		
+			console.log("response",response);
+			$window.location.href = '/thankyou'		
 		});
 		
 	}

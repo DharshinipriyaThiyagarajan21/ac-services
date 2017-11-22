@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'home/index'
   post '/get_data' => "home#get_data"
   get '/customer/new' => "customer#new"
+  get '/technician/new' => "technician#new"
+  get '/thankyou' => "home#thank_you"
 
   root to: "home#index"
   
