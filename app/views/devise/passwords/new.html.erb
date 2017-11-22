@@ -1,0 +1,24 @@
+<div class="container-fluid" ng-controller="userController">
+	<div class="login-card card">
+		<div class="header">
+			<h1 class="text-center">Forgot your password?</h1>
+		</div>
+		<form action="/users/password"  method="post"><input name="utf8" type="hidden" value="✓">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+			<div class="form-group">
+				<input type="email" class="inputBox" name="user[email]" placeholder="Email id" ng-enter="sendResetInstructions()">
+			</div>
+
+			<div class="form-group text-center mar-t30">
+				<input type="submit" name="commit" class="btn submitBtn" value="Request reset link">
+			</div>
+
+			<div class="login-actions">
+				<a href='/users/sign_in' class="pull-left">Already hava an account?</a>
+				<a href='/users/sign_up' class="pull-right">Don't have an account?</a>
+				<div class="clearfix"></div>
+			</div>
+		</form>
+	</div>
+</div>

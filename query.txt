@@ -1,0 +1,8 @@
+p = Technician.where(:customer_id => [Customer.where(:address => 'Nagawara').pluck(:id)]).pluck(:name)
+
+p = Technician.where(:customer_id => [Customer.where(:address => 'Nagawara').pluck(:id)]).pluck(:id)
+
+// To get the technician details in customer's place
+
+
+p = Service.where(:technician_id => e).pluck(:name)

@@ -1,0 +1,68 @@
+<div ng-controller="customerController">
+	<div class="container main-content">
+		<div class="tabs-section">
+			<h3 class="text-center">Customer Details</h3>
+			<div>
+				<div class="row form-group">
+					<div class="col-sm-3 text-right">
+						<label>Name :</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" ng-model="customer.name" class="form-control">
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-3 text-right">
+						<label>Address :</label>
+					</div>
+					<div class="col-sm-6">
+						<textarea ng-model="customer.address" class="form-control" cols="100" rows="3">
+						</textarea>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-3 text-right">
+						<label>City :</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" ng-model="customer.city" class="form-control">
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-3 text-right">
+						<label>State :</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" ng-model="customer.state" class="form-control">
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-3 text-right">
+						<label>Country :</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" ng-model="customer.country" class="form-control">
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="row form-group">
+					<div class="col-sm-3 text-right">
+						<label>Mobile No. :</label>
+					</div>
+					<div class="col-sm-6">
+						<input type="text" ng-model="customer.mobile" class="form-control">
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="text-center">
+					<button class="btn submitBtn" ng-click="saveCustomer()">Save</button>
+					<a class="btn submitBtn" href="/home">back</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,58 @@
+<div class="container-fluid" ng-controller="userController">  
+  <form action="/users"  method="post" enctype="multipart/form-data"><input name="utf8" type="hidden" value="✓">
+    <input type="hidden" name="_method" value="patch">
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <div class="login-card card">
+      <div>
+        <div class="header">
+          <h1 class="text-center">Edit Profile</h1>
+        </div>
+        <div>
+          <div class="image-upload">
+            <div class="profile-img">
+              <label for="file-input">
+                <img src="<%= @user.avatar %>"/>             
+                <img src="/assets/add.png" class="add-icon">
+               </label>
+            </div>
+            <input type="file" id="file-input" name="user[avatar]">
+          </div>
+          <p id="disp" class="text-center"></p>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <input type="text" name="user[firstname]" value="<%= @user.firstname %>" class="inputBox" placeholder="First Name" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <input type="text" name="user[lastname]" value="<%= @user.lastname %>" class="inputBox" placeholder="Last Name" required>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="form-group">
+          <input type="email" name="user[email]" value="<%= @user.email %>" class="inputBox" placeholder="Email id" required>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <input autocomplete="new-password" type="password" name="user[password]" class="inputBox" placeholder="Password">
+          </div>
+          <div class="form-group col-sm-6">
+            <input autocomplete="new-password" type="password" name="user[password_confirmation]" class="inputBox" placeholder="Confirm Password">
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="text-center login-actions">
+          <button type="submit" class="btn submitBtn">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.image-upload input[type="file"]').change(function(e){
+        document.getElementById('disp').innerHTML = e.target.files[0].name;
+      });
+    });
+  </script>
+ 
+</div>

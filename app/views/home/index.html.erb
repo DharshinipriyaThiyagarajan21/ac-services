@@ -1,0 +1,99 @@
+<div ng-controller="homeController" ng-cloak>
+	<div>
+		<div class="container main-content">
+			<h3 class="text-center heading">AC Service Center Information</h3>
+			<div class="tabs-section">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#customer" data-toggle="tab">Customers</a></li>
+					<li><a href="#technician" data-toggle="tab">Technicians</a></li>
+					<li><a href="#service" data-toggle="tab">Services</a></li>
+				</ul>
+				<div class="tab-content clearfix">
+					<div class="tab-pane active" id="customer">
+						<div class="search-section">
+						</div>
+						<div class="table">
+							<table>
+								<thead>
+									<th>Name</th>
+									<th>Address</th>
+									<th>City</th>
+									<th>Country</th>
+									<th>Mobile No.</th>
+								</thead>
+								<tbody>
+									<tr ng-repeat="c in custData">
+										<td>{{c.name}}</td>
+										<td>{{c.address}}</td>
+										<td>{{c.city}}</td>
+										<td>{{c.country}}</td>
+										<td>{{c.mobile}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane" id="technician">
+						<div class="search-section">
+						</div>
+						<div class="table">
+							<table>
+								<thead>
+									<th>Name</th>
+									<th>Address</th>
+									<th>City</th>
+									<th>Country</th>
+									<th>Mobile No.</th>
+								</thead>
+								<tbody>
+									<tr ng-repeat="t in techData">
+										<td>{{t.name}}</td>
+										<td>{{t.address}}</td>
+										<td>{{t.city}}</td>
+										<td>{{t.country}}</td>
+										<td>{{t.mobile}}</td>
+										<td>{{t.experience}} <span ng-if="{{t.experience}} < 2">yr</span> <span ng-if="{{t.experience}} > 2">yrs</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>	
+					<div class="tab-pane" id="service">
+						<div class="search-section">
+						</div>
+						<div class="table">
+							<table>
+								<thead>
+									<th>Problem</th>
+									<th>AC Description</th>
+									<th>Service Requested by</th>
+									<th>Service done by</th>
+									<th>Service Charge</th>
+									<th>Service Date</th>
+								</thead>
+								<tbody>
+									<tr ng-repeat="s in services">
+										<td>{{s.problem}}</td>
+										<td>{{s.count}} of {{s.ac_brand}} {{s.ac_type}} AC</td>
+										<td>{{s.cust_name}}</td>
+										<td>{{s.tech_name}}</td>
+										<td>{{s.charge}}</td>
+										<td>{{s.service_date}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var json = {
+		'techData': <%= @technicians.to_json.html_safe %>,
+		'custData': <%= @customers.to_json.html_safe %>,
+		'services': <%= @services.to_json.html_safe %>
+	}
+	console.log(json)
+</script>

@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="login-card card">
+    <div class="header">
+      <h1 class="text-center">Change your password?</h1>
+    </div>
+    <form name="resetPasswordForm" action="/users/password" method="POST">
+      <input type="hidden" name="_method" value="put">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="hidden" value="<%= params[:reset_password_token] %>" name="user[reset_password_token]" id="user_reset_password_token" />
+
+      <div class="form-group">
+        <input type="password" class="inputBox" name="user[password]" placeholder="Password">
+      </div>
+
+      <div class="form-group">
+        <input type="password" class="inputBox" name="user[password_confirmation]" placeholder="Confirm Password">
+      </div>
+
+      <div class="form-group text-center mar-t30">
+        <input type="submit" name="commit" class="btn submitBtn" value="Change my password">
+      </div>
+
+      <div class="login-actions">
+        <a href='/users/sign_in' class="pull-left">Already hava an account?</a>
+        <a href='/users/sign_up' class="pull-right">Don't have an account?</a>
+        <div class="clearfix"></div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<% if flash[:notice] %>
+<div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
+<% if flash[:signup] %>
+<div class="alert alert-success"><%= flash[:signup] %></div>
+<% end %>
+<div class="container-fluid">  
+  <form name="signupForm" class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post" enctype="multipart/form-data">
+    <div class="login-card card">
+      <input name="utf8" type="hidden" value="✓">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <div>
+        <div class="header">
+          <h1 class="text-center">Register</h1>
+        </div>
+        <div class="form-group">
+          <div class="image-upload">
+            <div class="profile-img">
+              <label for="file-input">
+                <img src="/assets/add_user_icon_blue.png"/>
+              </label>
+            </div>
+            <input type="file" id="file-input" name="user[avatar]">
+          </div>
+          <p id="disp" class="text-center"></p>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <input type="text" name="user[firstname]" class="inputBox" placeholder="First Name" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <input type="text" name="user[lastname]" class="inputBox" placeholder="Last Name" required>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="form-group">
+          <input type="email" name="user[email]" class="inputBox" placeholder="Email id" required>
+        </div>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <input autocomplete="new-password" type="password" name="user[password]" class="inputBox" placeholder="Password" required>
+          </div>
+          <div class="form-group col-sm-6">
+            <input autocomplete="new-password" type="password" name="user[password_confirmation]" class="inputBox" placeholder="Confirm Password" required>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+        <div class="text-center login-actions">
+          <button type="submit" class="btn submitBtn">Sign Up</button>
+          <input type="button" class="btn submitBtn" onclick="location.href='sign_in'" value="Cancel" />
+        </div>
+      </div>
+    </div>
+  </form>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.image-upload input[type="file"]').change(function(e){
+        document.getElementById('disp').innerHTML = e.target.files[0].name;
+      });
+    });
+  </script>
+ 
+</div>
